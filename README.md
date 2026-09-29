@@ -1,154 +1,147 @@
-# Hermes Studio (unofficial)
+# Hermes Studio
 
-Chat with [Hermes Agent](https://github.com/NousResearch/hermes-agent) inside VS Code.
+**Hermes Agent, right inside VS Code.**
 
-Hermes keeps its brain: the skills it learns, its curator, its memory, and your ChatGPT,
-Codex and Claude logins. VS Code stays your editor, with its explorer, git colours and
-everything else around the chat.
+Ask Hermes to fix a bug, explain some code or build a feature, and watch it work next to
+your files. You keep everything that makes Hermes yours: the skills it learns, its
+memory, and your ChatGPT, Codex or Claude subscription.
 
-> **Unofficial.** Hermes Studio is a community project. It is not affiliated with,
-> endorsed by, or connected to Nous Research. "Hermes" and "Hermes Agent" are their
-> project.
+![Hermes explains a bug, fixes it and lists the files it changed; next to it, Hermes asks before it edits a file](https://raw.githubusercontent.com/jefuriiij/hermes-studio-releases/main/images/chat.png)
 
-![A Hermes reply with clickable file paths and the files it changed, next to an edit approval card](https://raw.githubusercontent.com/jefuriiij/hermes-studio-releases/main/images/chat.png)
+## Before you start
 
-## Install
+> **Hermes Studio needs Hermes Agent on your computer.** Hermes Studio is the window;
+> Hermes is the brain. Hermes Agent is free and open source.
 
-- **VS Code:** search for **Hermes Studio** in the Extensions view, or install it from the
-  [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=jefuriiij.hermes-studio).
-- **Google Antigravity** (or any editor that cannot use the Marketplace): download the
-  `.vsix` from [Releases](https://github.com/jefuriiij/hermes-studio-releases/releases), then
-  run **Extensions: Install from VSIX…**.
+1. **Install Hermes Agent** for Windows, macOS or Linux:
+   [hermes-agent.nousresearch.com](https://hermes-agent.nousresearch.com/docs).
+2. **Connect a model.** Open a terminal, run `hermes model` once and sign in with the
+   provider you want to use (for example your ChatGPT, Codex or Claude subscription).
+3. You need **VS Code 1.106 or later**.
 
-This repository holds the extension's page, pictures and releases, and is the place for
-bug reports and ideas.
+That's it. Hermes Studio finds Hermes by itself.
 
-## Features
+## Get started
 
-### A chat that shows its work
+1. Install Hermes Studio from the
+   [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=jefuriiij.hermes-studio),
+   or search for **Hermes Studio** in VS Code's Extensions view.
+2. Open a project folder in VS Code.
+3. Click the **Hermes icon** at the top right of any open file, or open the Command
+   Palette (**Ctrl+Shift+P**) and run **Hermes Studio: Open Chat**.
+4. Tell Hermes what you need, in plain words.
 
-- Replies stream as Markdown, with highlighted code and a **Copy** button.
-- Hermes's thinking is folded away. Its tool calls share one **"N steps"** card; open a
-  step to see what the tool reported, its diff and the files it touched.
-- A file path in a reply that is a real file shows in gold. Click it to open the file,
-  at the line.
-- Under a finished reply: **Changed in this reply** lists the files Hermes edited, with
-  their +/− lines (click for the diff). Then how long it took, **Copy** and **Retry**.
+The chat opens in the side bar. You can also move it into its own editor tab.
 
-### Approvals in the chat
+## What you can do
 
-When Hermes wants to edit a file or run a risky command, it asks in the chat: a card with
-the whole change as a diff (**Open diff** for the side-by-side view), or the exact command.
-**Deny** is the first button, and a card never takes focus by itself, so typing can never
-approve anything. If the chat is not on screen, a notification takes you to the card.
+### Work on your code together
 
-### Skills and files
+- Ask in plain words. Hermes reads your files, runs commands and changes code for you.
+- See what Hermes did: every step in one tidy list, and under each answer the files it
+  changed, with a click to see the change.
+- Click any file name Hermes mentions to open that file.
+- Copy an answer, or ask again with **Retry**.
 
-![The "/" list of skills, and the model menu with subscription usage](https://raw.githubusercontent.com/jefuriiij/hermes-studio-releases/main/images/composer.png)
+### Stay in control
 
-- Type **`/`** anywhere in a message to pick one of Hermes's skills. It stays in the text
-  in gold, and one message can name several. At the start of a message, `/` also lists
-  Hermes's own commands (`/compress`, `/context`, …).
-- Type **`@`** to add a file or folder from the workspace.
-- The **+** button adds files, your selection, VS Code's errors and warnings, your git
-  changes, or an image (or paste one). Hold **Shift** to drop files into the chat.
-- The file you are working in goes along by itself (its path and line, or your selected
-  lines, never the whole file). Click **×** on its chip to leave it out.
+- **Hermes asks first.** Before it changes a file or runs a risky command, you see the
+  exact change and choose **Deny** or **Allow**. Nothing happens by accident while you
+  type.
+- **Choose how free Hermes is:** **Manual** (it asks before every change), **Edit
+  automatically** (it changes files in this project without asking) or **Auto**. Risky
+  commands and sensitive files always ask.
+- **Stop at any time**, or type a correction while Hermes works. It reads it at its next
+  step.
 
-### Models, modes and effort
+### Give Hermes the right context
 
-![The modes pop-up with the effort slider, and the Sessions pop-up](https://raw.githubusercontent.com/jefuriiij/hermes-studio-releases/main/images/modes.png)
+![Picking one of Hermes's skills with "/", and choosing a model with its usage](https://raw.githubusercontent.com/jefuriiij/hermes-studio-releases/main/images/composer.png)
 
-- **Switch models without leaving the session.** The model menu groups every model Hermes
-  can use by provider, and shows how much of each subscription is used.
-- **Usage limits:** when a provider gives up, a banner offers to continue with another
-  provider's model. One click switches and sends your message again.
-- **Modes:** **Manual** (Hermes asks before each edit), **Edit automatically** (edits
-  files in this folder without asking) or **Auto** (edits any file without asking).
-  Sensitive files and risky commands always ask. The composer's outline takes the mode's
-  colour.
-- **Effort:** a slider from Low to Max for how hard Hermes thinks.
-- **Context:** a ring shows how full the context window is. Click it for the details and
-  **Compress now**.
+- The file you're in goes along by itself, so Hermes knows what you're looking at.
+- Type **@** to add a file from your project.
+- Use **+** to add your selection, VS Code's errors, your git changes or a screenshot. You
+  can also paste an image.
+- Type **/** to use one of Hermes's skills, anywhere in your message. You can use several
+  at once.
 
-### Sessions
+### Choose your model
 
-- The **Sessions** pop-up lists the Hermes sessions started in this folder, with search.
-  Open one to continue where it left off. Rename or delete sessions there.
-- **Chats keep working in the background.** Start a new chat while Hermes works: the
-  first one goes on, and the pop-up shows it as working.
-- **Send while Hermes works.** Your message waits in a queue and goes out when the reply
-  ends, or use **Send now** to steer the reply Hermes is writing.
-- Move the chat into an **editor tab** and back.
+- Switch between Claude, ChatGPT, Codex and other models in the middle of a chat. The
+  conversation stays.
+- See how much of each subscription you've used.
+- Hit a usage limit? Continue with another model in one click.
+- Choose how hard Hermes thinks, from **Low** to **Max**.
 
-### What Hermes learned
+### Pick up where you left off
 
-![The Learning tab with new and improved skills, and the Memory tab](https://raw.githubusercontent.com/jefuriiij/hermes-studio-releases/main/images/panels.png)
+![How free Hermes is, and how hard it thinks; next to it, the chats of this project](https://raw.githubusercontent.com/jefuriiij/hermes-studio-releases/main/images/modes.png)
 
-Tabs next to the chat, and a **Hermes** view in the activity bar, show Hermes's own files,
-read-only:
+- Every chat is saved, per project. Search them, open one to carry on, rename or delete
+  them.
+- Start a new chat while Hermes works: the first one keeps going in the background.
+- Get a notification when Hermes needs you or is done. On Windows, even when VS Code is
+  in the background.
 
-- **Learning:** the skills Hermes created or improved this week, each change as a diff,
-  and the chat it came from. Plus the **curator**: when it last ran and what it did.
-- **Memory:** your notes and profile, and memory changes that wait for your OK.
-- **Capabilities:** skills by source, MCP connectors and plugins.
-- **Agents:** background subagents, task by task.
+### See what Hermes learns
 
-### Notifications
+![What Hermes learned this week, and what it remembers about you and your project](https://raw.githubusercontent.com/jefuriiij/hermes-studio-releases/main/images/panels.png)
 
-Hermes Studio tells you when Hermes needs your OK, finishes or stops, but only while you
-are not looking at that chat. On Windows it also shows a Windows notification while VS Code
-is in the background. A notification never answers an approval: **Show** only takes you to
-the card.
+Hermes gets better the more you use it. Hermes Studio shows you how:
 
-## Requirements
+- **Learning:** the new skills Hermes made this week and the ones it improved.
+- **Memory:** what Hermes remembers about you and your projects.
+- **Capabilities:** all its skills and connected tools.
+- **Agents:** helpers Hermes started to work on a task in the background.
 
-- **VS Code 1.106 or later.** Google Antigravity works too. Cursor is not supported (it
-  reserves the secondary side bar).
-- **Hermes Agent**, installed and set up with a model provider (`hermes model`). Hermes
-  Studio finds `hermes.exe` on `PATH` or in `%LOCALAPPDATA%\hermes\bin`; on macOS and
-  Linux, `hermes` on `PATH` or in `~/.local/bin`.
-- Built and tested on Windows. macOS and Linux should work, but are less tested.
+## Questions
 
-## Getting started
+**Does it cost anything?**
+No. Hermes Studio and Hermes Agent are free. You only pay for the model subscription you
+already use, or nothing with a local model.
 
-1. Install Hermes Studio.
-2. Open a folder.
-3. Click the **Hermes** icon in the editor title bar, or run **Hermes Studio: Open Chat**.
+**Is my code sent somewhere?**
+Hermes Studio itself sends nothing anywhere and collects no data. Your messages go to
+Hermes on your computer, and Hermes sends them to the model provider you picked.
 
-If Hermes has no model provider yet, the chat says **Setup needed**. Click **Run setup**:
-it runs `hermes model` in a terminal and restarts Hermes when you close it.
+**Does it work in other editors?**
+Google Antigravity: yes. Download the `.vsix` from
+[GitHub Releases](https://github.com/jefuriiij/hermes-studio-releases/releases) and run
+**Extensions: Install from VSIX…**. Cursor: no, sorry.
 
-## How it works
+**Does it work on Mac and Linux?**
+It is made and tested on Windows. Mac and Linux should work, but have had less testing.
+Tell us if something is off.
 
-Hermes Studio starts `hermes acp`, Hermes's official editor mode, for the open folder and
-talks to it over the [Agent Client Protocol](https://agentclientprotocol.com). Editor mode
-builds the same agent as the terminal, so learning, the curator and memory keep working.
+**Is this made by Nous Research?**
+No. Hermes Studio is a community extension by an independent developer. Hermes Agent is
+made by Nous Research.
 
-Hermes is the only store: Hermes Studio saves no transcript of its own. It connects to
-nothing itself (no telemetry, no servers) and talks only to the `hermes` program on your
-computer. It reads Hermes's files for the panels, but never its credentials.
+## Something not working?
+
+- **"Hermes not found":** Hermes Agent isn't installed, or it's in a place Hermes Studio
+  doesn't look. Install it (see [Before you start](#before-you-start)), or set **Hermes
+  Studio: Path** in Settings to the full path of `hermes.exe`.
+- **"Setup needed":** Hermes has no model yet. Click **Run setup** and follow the steps.
+- **Anything else:** open the Command Palette and run **Hermes Studio: Show Log**, then
+  [tell us about it](https://github.com/jefuriiij/hermes-studio-releases/issues) and
+  include what the log says.
 
 ## Settings
 
-| Setting | Default | |
-|---|---|---|
-| `hermesStudio.path` | *(empty)* | Absolute path to the Hermes executable. Machine-scoped: a workspace cannot change it. |
-| `hermesStudio.notifications` | `true` | Tell you when Hermes needs your approval, finishes or stops, while you are not looking at that chat. |
-| `hermesStudio.windowsNotifications` | `true` | On Windows, also show a Windows notification while VS Code is not the front window. |
-| `hermesStudio.trace` | `false` | Log every protocol message to the **Hermes Studio** output channel. Includes your prompts: leave it off unless you are debugging. |
+Open Settings and search for **Hermes Studio**:
 
-## Troubleshooting
-
-- **"Hermes not found":** set `hermesStudio.path` to `hermes.exe` (not `hermes.cmd`).
-- **"Setup needed":** click **Run setup**.
-- **Anything else:** **Hermes Studio: Show Log** shows what Hermes printed.
+- **Notifications:** tell you when Hermes needs you, is done or stopped. On by default.
+- **Windows Notifications:** also show them in Windows while VS Code is in the
+  background. On by default.
+- **Path:** where Hermes is, if Hermes Studio can't find it by itself.
 
 ## Feedback
 
-Found a bug or have an idea?
-[Open an issue](https://github.com/jefuriiij/hermes-studio-releases/issues).
+Ideas and bug reports are welcome:
+[open an issue](https://github.com/jefuriiij/hermes-studio-releases/issues).
 
-## License
+---
 
-[MIT](LICENSE)
+Hermes Studio is an independent community extension. It is not made or endorsed by Nous
+Research, the makers of Hermes Agent. [MIT License](LICENSE).
