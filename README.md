@@ -90,8 +90,10 @@ The chat opens in the side bar. You can also move it into its own editor tab.
 Hermes gets better the more you use it. Hermes Studio shows you how:
 
 - **Learning:** the new skills Hermes made this week and the ones it improved.
-- **Memory:** what Hermes remembers about you and your projects.
-- **Capabilities:** all its skills and connected tools.
+- **Memory:** what Hermes remembers about you and your projects. When Hermes wants to
+  change its memory, click **Approve** or **Reject**, right there.
+- **Capabilities:** all its skills and connected tools. **Get more** finds new skills on
+  the Skills Hub and installs them in one click, after Hermes checks them for safety.
 - **Agents:** helpers Hermes started to work on a task in the background.
 
 ## Questions
